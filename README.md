@@ -19,8 +19,7 @@ Supermarket-Management/
 │   ├── Detergent.txt  
 │   └── Canned.txt  
 │
-├── SupermarketFinalProject.slnx  
-├── SupermarketFinalProject.vcxproj  
+├── SupermarketFinalProject.slnx  ├── SupermarketFinalProject.vcxproj  
 
 ## Features
 - Admin and employee login  
