@@ -14,23 +14,23 @@ protected:
     double food_price[100];
     int food_quantity[100];
     int food_count = 0;
-    int food_sales = 0;
+    double food_sales = 0;
     //Detergent products
     int detergent_id[100];
     string detergent_name[100];
     double detergent_price[100];
     int detergent_quantity[100];
     int detergent_count = 0;
-    int detergent_sales = 0;
+    double detergent_sales = 0;
     //Canned products
     int canned_id[100];
     string canned_name[100];
     double canned_price[100];
     int canned_quantity[100];
     int canned_count = 0;
-    int canned_sales = 0;
+    double canned_sales = 0;
 
-    int total_sales = 0;
+    double total_sales = 0;
     double total_value = 0;
 public:
     //Create and save files
@@ -95,4 +95,5 @@ public:
     //A method for choosing role
     void chooseRole(Product& P);
 };
+
 
