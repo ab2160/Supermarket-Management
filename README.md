@@ -11,7 +11,6 @@ Supermarket-Management/
 │   ├── Product.cpp  
 │   ├── Supermarket.cpp  
 │   └── User.cpp  
-│
 ├── include/             
 # Header files  
 │   └── Supermarket.h  
@@ -22,7 +21,7 @@ Supermarket-Management/
 │   ├── Detergent.txt  
 │   └── Canned.txt  
 │
-# Solution of the project: ├── SupermarketFinalProject.slnx  
+# Solution of the project: #├── SupermarketFinalProject.slnx  
 # Project created: ├── SupermarketFinalProject.vcxproj  
 
 ## Features
