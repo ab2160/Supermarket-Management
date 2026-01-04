@@ -4,7 +4,6 @@ A simple C++ console-based supermarket management system that uses object-orient
 
 ## Project Structure
 Supermarket-Management/
-│
 ├── src/                 
 # Source files  
 │   ├── main.cpp  
@@ -14,13 +13,11 @@ Supermarket-Management/
 ├── include/             
 # Header files  
 │   └── Supermarket.h  
-│
 ├── data/                
 # Stock files  
 │   ├── Food.txt  
 │   ├── Detergent.txt  
 │   └── Canned.txt  
-│
 # Solution of the project: 
 ├── SupermarketFinalProject.slnx  
 # Project created: 
