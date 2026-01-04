@@ -1,6 +1,6 @@
 # Supermarket Management System
 
-A simple C++ console-based supermarket management system that uses object-oriented programming to manage inventory, sales, and user roles. It supports both admin and employee operations, including adding, removing, selling products, and tracking total sales and inventory value.
+A simple C++ console-based supermarket management system that uses object-oriented programming to manage inventory, sales and user roles. It supports both admin and employee operations, including adding, removing, selling products and tracking total sales and inventory value.
 
 ## Project Structure
 Supermarket-Management/
@@ -26,4 +26,11 @@ Supermarket-Management/
 - Admin and employee login  
 - Add, remove, and sell products (Food, Detergent, Canned)  
 - Track total sales and inventory value  
-- File-based persistence for stock data  
+- File-based persistence for stock data
+
+## UML Diagram
+
+The following UML diagram illustrates the class structure of the Supermarket Management System, including inheritance relationships between Supermarket, Product and User classes.
+
+![UML Diagram](uml_diagram.png)
+
