@@ -4,126 +4,159 @@
 #include <algorithm> // Library for changing letters to lower case
 #include <string>
 using namespace std;
-void Product::addFoodProduct(int add)
-{
-    for (int i = food_count; i < food_count + add && i < 100; i++)
+bool Product::isduplcate(int id)
     {
-        cout << "Enter the name of the product: ";
-        cin >> food_name[i];
+        for (int i = 0; i < food_count; i++)
+            if (food_id[i] == id)
+                return true;
 
-        do
-        {
-            cout << "Enter the Id of the product: ";
-            cin >> food_id[i];
-            if (food_id[i] <= 0)
-            {
-                cout << "Invalid id!!" << endl;
-            }
-        } while (food_id[i] <= 0);
-        do
-        {
-            cout << "Enter the price of the product: ";
-            cin >> food_price[i];
-            if (food_price[i] <= 0)
-            {
-                cout << "Invalid price input!!" << endl;
-            }
-        } while (food_price[i] <= 0);
-        do
-        {
-            cout << "Enter the quantity of the product: ";
-            cin >> food_quantity[i];
-            if (food_quantity[i] <= 0)
-            {
-                cout << "Invalid quantity input!!" << endl;
-            }
-        } while (food_quantity[i] <= 0);
+        for (int i = 0; i < canned_count; i++)
+            if (canned_id[i] == id)
+                return true;
+
+        for (int i = 0; i < detergent_count; i++)
+            if (detergent_id[i] == id)
+                return true;
+
+        return false;
     }
-    food_count = food_count + add;
-
-    cout << "You have successfully added a product." << endl;
-}
-
-void Product::addDetergentProduct(int add)
-{
-    for (int i = detergent_count; i < detergent_count + add && i < 100; i++)
+void Product:: addFoodProduct()
     {
-        cout << "Enter the name of the product: ";
-        cin >> detergent_name[i];
+        string i;
+        do
+        {
+            cout << "Enter the name of the product: ";
+            cin >> food_name[food_count];
 
-        do
-        {
-            cout << "Enter the Id of the product: ";
-            cin >> detergent_id[i];
-            if (detergent_id[i] <= 0)
+            do
             {
-                cout << "Invalid id!!" << endl;
-            }
-        } while (detergent_id[i] <= 0);
-        do
-        {
-            cout << "Enter the price of the product: ";
-            cin >> detergent_price[i];
-            if (detergent_price[i] <= 0)
+                cout << "Enter the Id of the product: ";
+                cin >> food_id[food_count];
+
+                if (food_id[food_count] <= 0)
+                    cout << "Invalid id!!\n";
+                else if (isduplcate(food_id[food_count]))
+                    cout << "Product with the same id exists!!\n";
+
+            } while (food_id[food_count] <= 0 || isduplcate(food_id[food_count]));
+
+            do
             {
-                cout << "Invalid price input!!" << endl;
-            }
-        } while (detergent_price[i] <= 0);
-        do
-        {
-            cout << "Enter the quantity of the product: ";
-            cin >> detergent_quantity[i];
-            if (detergent_quantity[i] <= 0)
+                cout << "Enter the price of the product: ";
+                cin >> food_price[food_count];
+                if (food_price[food_count] <= 0)
+                    cout << "Invalid price input!!\n";
+            } while (food_price[food_count] <= 0);
+
+            do
             {
-                cout << "Invalid quantity input!!" << endl;
-            }
-        } while (detergent_quantity[i] <= 0);
+                cout << "Enter the quantity of the product: ";
+                cin >> food_quantity[food_count];
+                if (food_quantity[food_count] <= 0)
+                    cout << "Invalid quantity input!!\n";
+            } while (food_quantity[food_count] <= 0);
+
+            food_count++;
+
+            cout << "You have successfully added a product." << endl;
+            cout << "Do you want to add a product(yes/no): ";
+            cin >> i;
+            transform(i.begin(), i.end(), i.begin(), ::tolower);
+
+        } while (i == "yes");
     }
-    detergent_count = detergent_count + add;
 
-    cout << "You have successfully added a product." << endl;
-}
-
-void Product::addCannedProduct(int add)
-{
-    for (int i = canned_count; i < canned_count + add && i < 100; i++)
+void Product::addDetergentProduct()
     {
-        cout << "Enter the name of the product: ";
-        cin >> canned_name[i];
+        string i;
+        do
+        {
+            cout << "Enter the name of the product: ";
+            cin >> detergent_name[detergent_count];
 
-        do
-        {
-            cout << "Enter the Id of the product: ";
-            cin >> canned_id[i];
-            if (canned_id[i] <= 0)
+            do
             {
-                cout << "Invalid id!!" << endl;
-            }
-        } while (canned_id[i] <= 0);
-        do
-        {
-            cout << "Enter the price of the product: ";
-            cin >> canned_price[i];
-            if (canned_price[i] <= 0)
+                cout << "Enter the Id of the product: ";
+                cin >> detergent_id[detergent_count];
+
+                if (detergent_id[detergent_count] <= 0)
+                    cout << "Invalid id!!\n";
+                else if (isduplcate(detergent_id[detergent_count]))
+                    cout << "Product with the same id exists!!\n";
+
+            } while (detergent_id[detergent_count] <= 0 ||
+                     isduplcate(detergent_id[detergent_count]));
+
+            do
             {
-                cout << "Invalid price input!!" << endl;
-            }
-        } while (canned_price[i] <= 0);
-        do
-        {
-            cout << "Enter the quantity of the product: ";
-            cin >> canned_quantity[i];
-            if (canned_quantity[i] <= 0)
+                cout << "Enter the price of the product: ";
+                cin >> detergent_price[detergent_count];
+                if (detergent_price[detergent_count] <= 0)
+                    cout << "Invalid price input!!\n";
+            } while (detergent_price[detergent_count] <= 0);
+
+            do
             {
-                cout << "Invalid quantity input!!" << endl;
-            }
-        } while (canned_quantity[i] <= 0);
+                cout << "Enter the quantity of the product: ";
+                cin >> detergent_quantity[detergent_count];
+                if (detergent_quantity[detergent_count] <= 0)
+                    cout << "Invalid quantity input!!\n";
+            } while (detergent_quantity[detergent_count] <= 0);
+
+            detergent_count++;
+            cout << "You have successfully added a product.";
+            cout << "Do you want to another product(yes/no): " << endl;
+            cin >> i;
+            transform(i.begin(), i.end(), i.begin(), ::tolower);
+        } while (i == "yes");
     }
-    canned_count = canned_count + add;
 
-    cout << "You have successfully added a product." << endl;
-}
+void Product::addCannedProduct()
+    {
+        string i;
+        do
+        {
+            cout << "Enter the name of the product: ";
+            cin >> canned_name[canned_count];
 
+            do
+            {
+                cout << "Enter the Id of the product: ";
+                cin >> canned_id[canned_count];
+
+                if (canned_id[canned_count] <= 0)
+                    cout << "Invalid id!!\n";
+                else if (isduplcate(canned_id[canned_count]))
+                    cout << "Product with the same id exists!!\n";
+
+            } while (canned_id[canned_count] <= 0 ||
+                     isduplcate(canned_id[canned_count]));
+
+            do
+            {
+                cout << "Enter the price of the product: ";
+                cin >> canned_price[canned_count];
+                if (canned_price[canned_count] <= 0)
+                    cout << "Invalid price input!!\n";
+            } while (canned_price[canned_count] <= 0);
+
+            do
+            {
+                cout << "Enter the quantity of the product: ";
+                cin >> canned_quantity[canned_count];
+                if (canned_quantity[canned_count] <= 0)
+                    cout << "Invalid quantity input!!\n";
+            } while (canned_quantity[canned_count] <= 0);
+
+            canned_count++;
+            cout << "You have successfully added a product." << endl;
+            cout << "Do you want to add another product(yes/no): ";
+            cin >> i;
+            transform(i.begin(), i.end(), i.begin(), ::tolower);
+        } while (i == "yes");
+
+        cout << "You have successfully added a product.\n";
+    }
 void Product::removeFoodProduct()
 {
     int r;
@@ -218,132 +251,166 @@ void Product::removeCannedProduct()
 }
 
 void Product::Foodsale()
-{
-    string name;
-    int id, q;
-    cout << "Enter the product name you want to sell: ";
-    cin >> name;
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
-    cout << "Enter the product id you want to sell: ";
-    cin >> id;
-
-    bool found = false; // track if we found a match
-    for (int i = 0; i < food_count; i++)
     {
-        string stored_name = food_name[i];
-        transform(stored_name.begin(), stored_name.end(), stored_name.begin(), ::tolower);
-        if (food_id[i] == id && stored_name == name)
-        {
-            cout << "Enter the quantity of the product you want to sell: ";
-            cin >> q;
-            if (q <= food_quantity[i])
-            {
-                food_sales += food_price[i] * q;
-                food_quantity[i] = food_quantity[i] - q;
+        string name, receipt;
+        int id, q;
+        cout << "Enter the product name you want to sell: ";
+        cin >> name;
+        transform(name.begin(), name.end(), name.begin(), ::tolower);
+        cout << "Enter the product id you want to sell: ";
+        cin >> id;
 
-                cout << "You have successfully sold a product." << endl;
-            }
-            else if (q > food_quantity[i])
+        bool found = false; // track if we found a match
+        for (int i = 0; i < food_count; i++)
+        {
+            string stored_name = food_name[i];
+            transform(stored_name.begin(), stored_name.end(), stored_name.begin(), ::tolower);
+            if (food_id[i] == id && stored_name == name)
             {
-                cout << "Insufficient quantity. Available quantity is: " << food_quantity[i] << endl;
+                cout << "Enter the quantity of the product you want to sell: ";
+                cin >> q;
+                if (q <= food_quantity[i])
+                {
+                    food_sales += food_price[i] * q;
+                    food_quantity[i] = food_quantity[i] - q;
+                    cout << "Do you want a receipt(yes/no): ";
+                    cin >> receipt;
+                    transform(receipt.begin(), receipt.end(), receipt.begin(), ::tolower);
+                    if (receipt == "yes")
+                    {
+                        cout << "  ======================\n";
+                        cout << "||      receipt        \n";
+                        cout << "||name: " << food_name[i] << endl;
+                        cout << "||quantity: " << q << endl;
+                        cout << "||total price: " << food_price[i] * q << " birr" << endl;
+                        cout << "  ======================\n";
+                    }
+                    cout << "You have successfully sold a product." << endl;
+                }
+                else if (q > food_quantity[i])
+                {
+                    cout << "Insufficient quantity. Available quantity is: " << food_quantity[i] << endl;
+                }
+                found = true;
+                break; // stop once weâ€™ve handled the sale
             }
-            found = true;
-            break; // stop once we’ve handled the sale
+        }
+
+        if (!found)
+        {
+            cout << "Product not found!!" << endl;
         }
     }
-
-    if (!found)
-    {
-        cout << "Product not found!!" << endl;
-    }
-}
 
 void Product::Detergentsale()
-{
-    string name;
-    int id, q;
-    cout << "Enter the product name you want to sell: ";
-    cin >> name;
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
-    cout << "Enter the product id you want to sell: ";
-    cin >> id;
-
-    bool found = false; // track if we found a match
-    for (int i = 0; i < detergent_count; i++)
     {
-        string stored_name = detergent_name[i];
-        transform(stored_name.begin(), stored_name.end(), stored_name.begin(), ::tolower);
-        if (detergent_id[i] == id && stored_name == name)
-        {
-            cout << "Enter the quantity of the product you want to sell: ";
-            cin >> q;
-            if (q <= detergent_quantity[i])
-            {
-                detergent_sales += detergent_price[i] * q;
-                detergent_quantity[i] = detergent_quantity[i] - q;
+        string name, receipt;
+        int id, q;
+        cout << "Enter the product name you want to sell: ";
+        cin >> name;
+        transform(name.begin(), name.end(), name.begin(), ::tolower);
+        cout << "Enter the product id you want to sell: ";
+        cin >> id;
 
-                cout << "You have successfully sold a product." << endl;
-            }
-            else if (q > detergent_quantity[i])
+        bool found = false; // track if we found a match
+        for (int i = 0; i < detergent_count; i++)
+        {
+            string stored_name = detergent_name[i];
+            transform(stored_name.begin(), stored_name.end(), stored_name.begin(), ::tolower);
+            if (detergent_id[i] == id && stored_name == name)
             {
-                cout << "Insufficient quantity. Available quantity is: " << detergent_quantity[i] << endl;
+                cout << "Enter the quantity of the product you want to sell: ";
+                cin >> q;
+                if (q <= detergent_quantity[i])
+                {
+                    detergent_sales += detergent_price[i] * q;
+                    detergent_quantity[i] = detergent_quantity[i] - q;
+                    cout << "Do you want a receipt(yes/no): ";
+                    cin >> receipt;
+                    transform(receipt.begin(), receipt.end(), receipt.begin(), ::tolower);
+                    if (receipt == "yes")
+                    {
+                        cout << "  ======================\n";
+                        cout << "||      receipt        \n";
+                        cout << "||name: " << detergent_name[i] << endl;
+                        cout << "||quantity: " << q << endl;
+                        cout << "||total price: " << detergent_price[i] * q << " birr" << endl;
+                        cout << "  ======================\n";
+                    }
+                    cout << "You have successfully sold a product.\n";
+                }
+                else if (q > detergent_quantity[i])
+                {
+                    cout << "Insufficient quantity. Available quantity is: " << detergent_quantity[i] << endl;
+                }
+                found = true;
+                break; // stop once weâ€™ve handled the sale
             }
-            found = true;
-            break; // stop once we’ve handled the sale
+        }
+
+        if (!found)
+        {
+            cout << "Product not found!!" << endl;
         }
     }
-
-    if (!found)
-    {
-        cout << "Product not found!!" << endl;
-    }
-}
 
 void Product::Cannedsale()
-{
-    string name;
-    int id, q;
-    cout << "Enter the product name you want to sell: ";
-    cin >> name;
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
-    cout << "Enter the product id you want to sell: ";
-    cin >> id;
-
-    bool found = false; // track if we found a match
-    for (int i = 0; i < canned_count; i++)
     {
-        string stored_name = canned_name[i];
-        transform(stored_name.begin(), stored_name.end(), stored_name.begin(), ::tolower);
-        if (canned_id[i] == id && stored_name == name)
-        {
-            cout << "Enter the quantity of the product you want to sell: ";
-            cin >> q;
-            if (q <= canned_quantity[i])
-            {
-                canned_sales += canned_price[i] * q;
-                canned_quantity[i] = canned_quantity[i] - q;
+        string name, receipt;
+        int id, q;
+        cout << "Enter the product name you want to sell: ";
+        cin >> name;
+        transform(name.begin(), name.end(), name.begin(), ::tolower);
+        cout << "Enter the product id you want to sell: ";
+        cin >> id;
 
-                cout << "You have successfully sold a product." << endl;
-            }
-            else if (q > canned_quantity[i])
+        bool found = false; // track if we found a match
+        for (int i = 0; i < canned_count; i++)
+        {
+            string stored_name = canned_name[i];
+            transform(stored_name.begin(), stored_name.end(), stored_name.begin(), ::tolower);
+            if (canned_id[i] == id && stored_name == name)
             {
-                cout << "Insufficient quantity. Available quantity is: " << canned_quantity[i] << endl;
+                cout << "Enter the quantity of the product you want to sell: ";
+                cin >> q;
+                if (q <= canned_quantity[i])
+                {
+                    canned_sales += canned_price[i] * q;
+                    canned_quantity[i] = canned_quantity[i] - q;
+
+                    cout << "Do you want a receipt(yes/no): ";
+                    cin >> receipt;
+                    transform(receipt.begin(), receipt.end(), receipt.begin(), ::tolower);
+                    if (receipt == "yes")
+                    {
+                        cout << "  ======================\n";
+                        cout << "||      Receipt        \n";
+                        cout << "||name: " << canned_name[i] << endl;
+                        cout << "||quantity: " << q << endl;
+                        cout << "||total price: " << canned_price[i] * q << " birr" << endl;
+                        cout << "  ======================\n";
+                    }
+                    cout << "You have successfully sold a product." << endl;
+                }
+                else if (q > canned_quantity[i])
+                {
+                    cout << "Insufficient quantity. Available quantity is: " << canned_quantity[i] << endl;
+                }
+                found = true;
+                break; // stop once weâ€™ve handled the sale
             }
-            found = true;
-            break; // stop once we’ve handled the sale
+        }
+
+        if (!found)
+        {
+            cout << "Product not found!!" << endl;
         }
     }
-
-    if (!found)
-    {
-        cout << "Product not found!!" << endl;
-    }
-}
 
 void Product::totalSale()
 {
     total_sales = food_sales + detergent_sales + canned_sales;
-    cout << "Total sale: " << total_sales << endl;
+    cout << "Total sale: " << total_sales << " birr" << endl;
 }
 
 void Product::displayFood()
@@ -407,7 +474,7 @@ void Product::totalValue()
     {
         total_value += canned_quantity[i] * canned_price[i];
     }
-    cout << "Total amount of price: " << total_value << endl;
+    cout << "Total amount of price: " << total_value << " birr" << endl;
 }
 
 void Product::adminMenu(Product& P)
@@ -587,4 +654,5 @@ void Product::employeeMenu(Product& P)
         }
     } while (choice != 5);
 }
+
 
