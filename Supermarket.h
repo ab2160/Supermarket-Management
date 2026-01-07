@@ -52,6 +52,8 @@ public:
 class Product : public Supermarket
 {
 public:
+    //Method for preventing ID duplication across products
+    bool isduplcate(int id);
     //Add products
     void addFoodProduct(int add);
     void addDetergentProduct(int add);
@@ -95,5 +97,6 @@ public:
     //A method for choosing role
     void chooseRole(Product& P);
 };
+
 
 
