@@ -59,6 +59,10 @@ void User::chooseRole(Product& P)
         {
             adminMenu(P);
         }
+        if (getName() != "abebe" || getId() != 11 || getPassword() != "as1234")
+            {
+                cout << "\n\nIncorrect admins password\n\n";
+            }
     }
     else if (role == 2)
     {
@@ -69,3 +73,4 @@ void User::chooseRole(Product& P)
         cout << "Invalid role!" << endl;
     }
 }
+
