@@ -33,5 +33,5 @@ Supermarket-Management/
 
 The following UML diagram illustrates the class structure of the Supermarket Management System, including inheritance relationships between Supermarket, Product and User classes.
 
-![UML Diagram](UMLdiagram.drawio.png)
+![UML Diagram](UML diagram.drawio.png)
 
